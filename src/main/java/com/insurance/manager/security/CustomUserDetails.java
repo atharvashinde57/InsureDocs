@@ -8,10 +8,10 @@ import java.util.Collection;
 public class CustomUserDetails extends User {
 
     private final String fullName;
-    private final Long id;
+    private final String id;
 
     public CustomUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities,
-            String fullName, Long id) {
+            String fullName, String id) {
         super(username, password, authorities);
         this.fullName = fullName;
         this.id = id;
@@ -21,7 +21,7 @@ public class CustomUserDetails extends User {
         return fullName;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 }

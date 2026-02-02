@@ -7,35 +7,10 @@ spring:
   application:
     name: insurance-manager
 
-  # H2 Database (Disabled)
-  # datasource:
-  #   url: jdbc:h2:mem:insurance_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-  #   username: sa
-  #   password: 
-  #   driver-class-name: org.h2.Driver
-    
-  # MySQL (Enabled)
-  datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3307/insurance_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:root}
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    hikari:
-      maximum-pool-size: 10
-      minimum-idle: 5
-      idle-timeout: 30000
-      pool-name: InsureHikariCP
-       
-  # JPA / Hibernate
-  jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
-    hibernate:
-      ddl-auto: update
-    open-in-view: false
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
+  # MongoDB Configuration
+  data:
+    mongodb:
+      uri: ${MONGO_URI:mongodb://localhost:27017/insurance_db}
 
   # File Upload Limits
   servlet:

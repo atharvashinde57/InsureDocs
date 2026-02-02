@@ -102,12 +102,12 @@ public class DocumentController {
     }
 
     @GetMapping("/document/{id}")
-    public String viewDocumentDetails(@PathVariable Long id, @AuthenticationPrincipal Object principal,
+    public String viewDocumentDetails(@PathVariable String id, @AuthenticationPrincipal Object principal,
             Model model) {
         User user = getCurrentUser(principal);
         Document doc = documentService.getDocument(id).orElse(null);
 
-        if (doc == null || !doc.getUploader().getId().equals(user.getId())) {
+        if (doc == null || !doc.getUploaderId().equals(user.getId())) {
             return "redirect:/dashboard?error=Document+not+found+or+access+denied";
         }
 
@@ -117,10 +117,10 @@ public class DocumentController {
 
     @GetMapping("/download/{id}")
     @ResponseBody
-    public ResponseEntity<Resource> download(@PathVariable Long id, @AuthenticationPrincipal Object principal) {
+    public ResponseEntity<Resource> download(@PathVariable String id, @AuthenticationPrincipal Object principal) {
         User user = getCurrentUser(principal);
         Document doc = documentService.getDocument(id).orElse(null);
-        if (doc == null || !doc.getUploader().getId().equals(user.getId())) {
+        if (doc == null || !doc.getUploaderId().equals(user.getId())) {
             return ResponseEntity.notFound().build();
         }
 
@@ -130,14 +130,14 @@ public class DocumentController {
     }
 
     @PostMapping("/delete/{id}")
-    public String delete(@PathVariable Long id,
+    public String delete(@PathVariable String id,
             @AuthenticationPrincipal Object principal,
             RedirectAttributes redirectAttributes) {
 
         User user = getCurrentUser(principal);
         Document doc = documentService.getDocument(id).orElse(null);
 
-        if (doc != null && doc.getUploader().getId().equals(user.getId())) {
+        if (doc != null && doc.getUploaderId().equals(user.getId())) {
             documentService.deleteDocument(id);
             redirectAttributes.addFlashAttribute("message", "Document deleted.");
         } else {

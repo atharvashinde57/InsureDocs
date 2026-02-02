@@ -50,7 +50,7 @@ public class DocumentServiceImpl implements DocumentService {
                 .filename(storedFilename)
                 .contentType(file.getContentType())
                 .size(file.getSize())
-                .uploader(uploader)
+                .uploaderId(uploader.getId())
                 .build();
 
         return documentRepository.save(doc);
@@ -58,22 +58,29 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     public List<Document> getAllDocuments(User uploader) {
-        return documentRepository.findByUploader(uploader);
+        return documentRepository.findByUploaderId(uploader.getId());
     }
 
     @Override
     public Page<Document> getPaginatedDocuments(User uploader, Pageable pageable) {
-        return documentRepository.findByUploader(uploader, pageable);
+        // Pagination with custom criteria might require more work in MongoRepository or
+        // using MongoTemplate
+        // For simple finding by UploaderId, we need to create a Pageable lookup in repo
+        // But for now, let's assume the repo method exists or we simple return list
+        // (breaking pagination temporarily or fixing repo)
+        // Wait, standard MongoRepository supports Pageable.
+        // Let's use findByUploaderId(String, Pageable)
+        return documentRepository.findByUploaderId(uploader.getId(), pageable);
     }
 
     @Override
-    public Optional<Document> getDocument(Long id) {
+    public Optional<Document> getDocument(String id) {
         return documentRepository.findById(id);
     }
 
     @Override
     @Transactional
-    public void deleteDocument(Long id) {
+    public void deleteDocument(String id) {
         Optional<Document> doc = documentRepository.findById(id);
         if (doc.isPresent()) {
             storageService.delete(doc.get().getFilename());

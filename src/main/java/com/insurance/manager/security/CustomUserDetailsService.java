@@ -13,8 +13,9 @@ import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
-@lombok.extern.slf4j.Slf4j
 public class CustomUserDetailsService implements UserDetailsService {
+
+        private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(CustomUserDetailsService.class);
 
         private final UserRepository userRepository;
 

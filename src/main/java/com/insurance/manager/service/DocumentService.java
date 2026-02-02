@@ -17,7 +17,7 @@ public interface DocumentService {
 
     Page<Document> getPaginatedDocuments(User uploader, Pageable pageable);
 
-    Optional<Document> getDocument(Long id);
+    Optional<Document> getDocument(String id);
 
-    void deleteDocument(Long id);
+    void deleteDocument(String id);
 }

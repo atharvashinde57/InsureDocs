@@ -1,0 +1,248 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.insurance:manager >------------------------
+[INFO] Building Insurance PDF Manager 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ manager ---
+[INFO] Deleting C:\Users\Atharva\Desktop\Projects\Insurance\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ manager ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 12 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ manager ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 25 source files with javac [debug release 17] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/model/Document.java:[5,1] com.insurance.manager.model.Document is already defined in this compilation unit
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/exception/GlobalExceptionHandler.java:[19,9] cannot find symbol
+  symbol:   variable log
+  location: class com.insurance.manager.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/exception/GlobalExceptionHandler.java:[26,9] cannot find symbol
+  symbol:   variable log
+  location: class com.insurance.manager.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/exception/GlobalExceptionHandler.java:[33,9] cannot find symbol
+  symbol:   variable log
+  location: class com.insurance.manager.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/exception/GlobalExceptionHandler.java:[41,9] cannot find symbol
+  symbol:   variable log
+  location: class com.insurance.manager.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/config/DataInitializer.java:[29,34] cannot find symbol
+  symbol:   method builder()
+  location: class com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/UserServiceImpl.java:[22,40] cannot find symbol
+  symbol:   method builder()
+  location: class com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/UserServiceImpl.java:[38,28] cannot find symbol
+  symbol:   method builder()
+  location: class com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/DocumentServiceImpl.java:[45,32] cannot find symbol
+  symbol:   method builder()
+  location: class com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/DocumentServiceImpl.java:[53,37] cannot find symbol
+  symbol:   method getId()
+  location: variable uploader of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/DocumentServiceImpl.java:[61,60] cannot find symbol
+  symbol:   method getId()
+  location: variable uploader of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/DocumentServiceImpl.java:[73,60] cannot find symbol
+  symbol:   method getId()
+  location: variable uploader of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/DocumentServiceImpl.java:[86,44] cannot find symbol
+  symbol:   method getFilename()
+  location: class com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[23,17] cannot find symbol
+  symbol:   variable log
+  location: class com.insurance.manager.security.CustomUserDetailsService
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[26,41] cannot find symbol
+  symbol:   variable log
+  location: class com.insurance.manager.security.CustomUserDetailsService
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[30,17] cannot find symbol
+  symbol:   variable log
+  location: class com.insurance.manager.security.CustomUserDetailsService
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[30,58] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[30,75] cannot find symbol
+  symbol:   method getRole()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[32,37] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[33,37] cannot find symbol
+  symbol:   method getPassword()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[33,66] cannot find symbol
+  symbol:   method getPassword()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[36,80] cannot find symbol
+  symbol:   method getRole()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[36,105] cannot find symbol
+  symbol:   method getRole()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[38,37] cannot find symbol
+  symbol:   method getName()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[39,37] cannot find symbol
+  symbol:   method getId()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/PoliciesController.java:[32,71] cannot find symbol
+  symbol:   method getId()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/FileSystemStorageService.java:[30,23] cannot find symbol
+  symbol:   method getLocation()
+  location: variable properties of type com.insurance.manager.config.StorageProperties
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/FileSystemStorageService.java:[33,49] cannot find symbol
+  symbol:   method getLocation()
+  location: variable properties of type com.insurance.manager.config.StorageProperties
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[110,32] cannot find symbol
+  symbol:   method getUploaderId()
+  location: variable doc of type com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[110,60] cannot find symbol
+  symbol:   method getId()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[123,32] cannot find symbol
+  symbol:   method getUploaderId()
+  location: variable doc of type com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[123,60] cannot find symbol
+  symbol:   method getId()
+  location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[127,58] cannot find symbol
+  symbol:   method getFilename()
+  location: variable doc of type com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[129,48] cannot find symbol
+  symbol:   method getFilename()
+  location: variable doc of type com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[140,31] cannot find symbol
+  symbol:   method getUploaderId()
+  location: variable doc of type com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[140,59] cannot find symbol
+  symbol:   method getId()
+  location: variable user of type com.insurance.manager.model.User
+[INFO] 36 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.879 s
+[INFO] Finished at: 2026-02-03T00:27:50+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project manager: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/model/Document.java:[5,1] com.insurance.manager.model.Document is already defined in this compilation unit
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/exception/GlobalExceptionHandler.java:[19,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.insurance.manager.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/exception/GlobalExceptionHandler.java:[26,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.insurance.manager.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/exception/GlobalExceptionHandler.java:[33,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.insurance.manager.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/exception/GlobalExceptionHandler.java:[41,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.insurance.manager.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/config/DataInitializer.java:[29,34] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/UserServiceImpl.java:[22,40] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/UserServiceImpl.java:[38,28] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/DocumentServiceImpl.java:[45,32] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/DocumentServiceImpl.java:[53,37] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable uploader of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/DocumentServiceImpl.java:[61,60] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable uploader of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/DocumentServiceImpl.java:[73,60] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable uploader of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/DocumentServiceImpl.java:[86,44] cannot find symbol
+[ERROR]   symbol:   method getFilename()
+[ERROR]   location: class com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[23,17] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.insurance.manager.security.CustomUserDetailsService
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[26,41] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.insurance.manager.security.CustomUserDetailsService
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[30,17] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.insurance.manager.security.CustomUserDetailsService
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[30,58] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[30,75] cannot find symbol
+[ERROR]   symbol:   method getRole()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[32,37] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[33,37] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[33,66] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[36,80] cannot find symbol
+[ERROR]   symbol:   method getRole()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[36,105] cannot find symbol
+[ERROR]   symbol:   method getRole()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[38,37] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/security/CustomUserDetailsService.java:[39,37] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/PoliciesController.java:[32,71] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/FileSystemStorageService.java:[30,23] cannot find symbol
+[ERROR]   symbol:   method getLocation()
+[ERROR]   location: variable properties of type com.insurance.manager.config.StorageProperties
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/service/impl/FileSystemStorageService.java:[33,49] cannot find symbol
+[ERROR]   symbol:   method getLocation()
+[ERROR]   location: variable properties of type com.insurance.manager.config.StorageProperties
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[110,32] cannot find symbol
+[ERROR]   symbol:   method getUploaderId()
+[ERROR]   location: variable doc of type com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[110,60] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[123,32] cannot find symbol
+[ERROR]   symbol:   method getUploaderId()
+[ERROR]   location: variable doc of type com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[123,60] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[127,58] cannot find symbol
+[ERROR]   symbol:   method getFilename()
+[ERROR]   location: variable doc of type com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[129,48] cannot find symbol
+[ERROR]   symbol:   method getFilename()
+[ERROR]   location: variable doc of type com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[140,31] cannot find symbol
+[ERROR]   symbol:   method getUploaderId()
+[ERROR]   location: variable doc of type com.insurance.manager.model.Document
+[ERROR] /C:/Users/Atharva/Desktop/Projects/Insurance/src/main/java/com/insurance/manager/controller/DocumentController.java:[140,59] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable user of type com.insurance.manager.model.User
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

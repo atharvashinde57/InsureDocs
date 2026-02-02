@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class PoliciesController {
 
     private final UserRepository userRepository;
+    private final com.insurance.manager.repository.DocumentRepository documentRepository;
 
     @GetMapping("/policies")
     public String policies(@RequestParam(required = false) String search, Model model) {
@@ -26,12 +27,10 @@ public class PoliciesController {
             users = userRepository.findAll();
         }
 
-        // Filter out users who have no documents (optional, but keeps the "Policies"
-        // list clean)
-        // users = users.stream().filter(u -> u.getDocuments() != null &&
-        // !u.getDocuments().isEmpty()).collect(Collectors.toList());
-        // For now, I'll list all users so we can see "No policies" if applicable, or
-        // the admin can see everyone.
+        // Manually populate documents for each user (since we removed @OneToMany)
+        users.forEach(user -> {
+            user.setDocuments(documentRepository.findByUploaderId(user.getId()));
+        });
 
         model.addAttribute("users", users);
         model.addAttribute("search", search);

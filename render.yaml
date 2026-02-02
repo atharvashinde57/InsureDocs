@@ -5,9 +5,5 @@ services:
     plan: free
     branch: main
     envVars:
-      - key: DB_URL
-        value: jdbc:mysql://db-hostname:3306/insurance_db # Replace with your real DB URL
-      - key: DB_USERNAME
-        value: root # Replace
-      - key: DB_PASSWORD
-        value: password # Replace
+      - key: MONGO_URI
+        value: mongodb+srv://atharvashinde811_db_user:jUfWnUzeVGpmiqQg@cluster1.hygoiiw.mongodb.net/insurance_db?appName=Cluster1
