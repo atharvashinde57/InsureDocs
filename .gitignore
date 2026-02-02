@@ -1,0 +1,13 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+*.class
+.idea/
+.vscode/
+*.iml
+*.log
+.DS_Store
+*.swp
+out/
+build/
+upload-dir/

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:replace="~{fragments/layout :: head-content}"></th:block>
+    <title>Dashboard - Insurance Manager</title>
+</head>
+
+<body class="bg-[#0a0a0a] text-white flex flex-col min-h-screen pt-20"> <!-- Added pt-20 for fixed navbar -->
+
+    <div th:replace="~{fragments/layout :: navbar}"></div>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+
+        <!-- Welcome Header -->
+        <div class="mb-8">
+            <h2 class="text-3xl font-light tracking-wide text-white">
+                DASHBOARD
+            </h2>
+            <p class="text-sm text-gray-400 mt-2 font-mono uppercase tracking-widest border-l-2 border-[#ff6b00] pl-3">
+                Manage your Documents
+            </p>
+        </div>
+
+        <!-- Alerts -->
+        <!-- Alerts replaced by Toast -->
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Left Column: Profile & Upload -->
+            <div class="space-y-8">
+
+                <!-- Profile Card -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="h-14 w-14 rounded-full bg-[#ff6b00]/20 flex items-center justify-center text-[#ff6b00] border border-[#ff6b00]/50">
+                            <i class="fas fa-user-astronaut text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-white" th:text="${user.name}">User</h4>
+                            <p class="text-xs text-gray-500 font-mono uppercase" th:text="${user.email}">email</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 border-t border-white/5 pt-4">
+                        <div class="text-center">
+                            <span class="block text-2xl font-bold text-white"
+                                th:text="${documentPage.totalElements}">0</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-widest">Policies</span>
+                        </div>
+                        <div class="text-center border-l border-white/5">
+                            <span class="block text-2xl font-bold text-[#ff6b00]">Active</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-widest">Status</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Widget (Sticky) -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 sticky top-24 backdrop-blur-sm">
+                    <h3 class="text-sm font-bold text-white uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-[#ff6b00]"></span> New Upload
+                    </h3>
+                    <form th:action="@{/upload}" method="POST" enctype="multipart/form-data" class="space-y-4">
+                        <div>
+                            <input type="text" name="title" required
+                                class="block w-full bg-black/50 border border-white/10 rounded px-4 py-2 text-sm text-gray-300 placeholder-gray-600 focus:border-[#ff6b00] focus:ring-1 focus:ring-[#ff6b00] focus:outline-none transition-colors"
+                                placeholder="Policy Title">
+                        </div>
+                        <div>
+                            <input type="text" name="policyNumber"
+                                class="block w-full bg-black/50 border border-white/10 rounded px-4 py-2 text-sm text-gray-300 placeholder-gray-600 focus:border-[#ff6b00] focus:ring-1 focus:ring-[#ff6b00] focus:outline-none transition-colors"
+                                placeholder="Policy # (Optional)">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] uppercase text-gray-500 mb-1">Start Date</label>
+                                <input type="date" name="startDate"
+                                    class="block w-full bg-black/50 border border-white/10 rounded px-3 py-2 text-xs text-gray-300 focus:border-[#ff6b00] focus:outline-none [color-scheme:dark]">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase text-gray-500 mb-1">End Date</label>
+                                <input type="date" name="endDate"
+                                    class="block w-full bg-black/50 border border-white/10 rounded px-3 py-2 text-xs text-gray-300 focus:border-[#ff6b00] focus:outline-none [color-scheme:dark]">
+                            </div>
+                        </div>
+
+                        <div class="relative group cursor-pointer">
+                            <input type="file" name="file" id="file" required accept="application/pdf"
+                                onchange="updateFileName(this)"
+                                class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" />
+                            <div
+                                class="border border-dashed border-white/20 rounded-lg p-6 text-center group-hover:border-[#ff6b00]/50 transition-colors">
+                                <i id="upload-icon"
+                                    class="fas fa-cloud-upload-alt text-2xl text-gray-500 mb-2 group-hover:text-[#ff6b00]"></i>
+                                <p id="upload-text" class="text-xs text-gray-400">Click to upload PDF</p>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full py-3 px-4 border border-[#ff6b00] bg-[#ff6b00]/10 text-[#ff6b00] text-sm font-bold uppercase tracking-widest rounded hover:bg-[#ff6b00] hover:text-black transition-all duration-300">
+                            Submit Accession
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Column: Document List -->
+            <div class="lg:col-span-2">
+                <div class="bg-white/5 border border-white/10 rounded-xl overflow-hidden backdrop-blur-sm">
+                    <div class="px-6 py-4 border-b border-white/5 flex justify-between items-center">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-widest">Registry</h3>
+                        <span class="text-xs font-mono text-gray-500"
+                            th:text="${documentPage.totalElements + ' ENTRIES'}">0 ENTRIES</span>
+                    </div>
+
+                    <!-- Desktop Table (Hidden on Mobile) -->
+                    <div class="hidden md:block overflow-x-auto">
+                        <table class="min-w-full divide-y divide-white/5">
+                            <thead class="bg-black/20">
+                                <tr>
+                                    <th scope="col"
+                                        class="py-3.5 pl-4 pr-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sm:pl-6">
+                                        Document</th>
+                                    <th scope="col"
+                                        class="px-3 py-3.5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Reference ID</th>
+                                    <th scope="col"
+                                        class="px-3 py-3.5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Valid Thru</th>
+                                    <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6"><span
+                                            class="sr-only">Actions</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5 bg-transparent">
+                                <tr th:each="doc : ${documents}" class="hover:bg-white/5 transition-colors group">
+                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-6">
+                                        <div class="flex items-center">
+                                            <div
+                                                class="h-8 w-8 rounded bg-[#ff6b00]/10 flex items-center justify-center text-[#ff6b00] mr-3 border border-[#ff6b00]/20">
+                                                <i class="fas fa-file-pdf"></i>
+                                            </div>
+                                            <a th:href="@{/document/{id}(id=${doc.id})}"
+                                                class="group-hover:text-[#ff6b00] transition-colors"
+                                                th:text="${doc.title}">Title</a>
+                                        </div>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-xs text-gray-400 font-mono"
+                                        th:text="${doc.policyNumber != null ? doc.policyNumber : '—'}">—</td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-xs text-gray-400">
+                                        <span
+                                            th:text="${doc.endDate != null ? #temporals.format(doc.endDate, 'MMM dd, yyyy') : 'Indefinite'}"
+                                            th:class="${doc.endDate != null && doc.endDate.isBefore(T(java.time.LocalDate).now()) ? 'text-red-500' : ''}">Date</span>
+                                    </td>
+                                    <td
+                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                        <a th:href="@{/download/{id}(id=${doc.id})}"
+                                            class="text-gray-500 hover:text-[#ff6b00] mr-4 transition-colors"><i
+                                                class="fas fa-download"></i></a>
+                                        <form th:action="@{/delete/{id}(id=${doc.id})}" method="POST" class="inline"
+                                            onsubmit="return confirm('Delete this record?');">
+                                            <button type="submit"
+                                                class="text-gray-500 hover:text-red-500 transition-colors"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Mobile Cards (Visible on Mobile) -->
+                    <div class="md:hidden">
+                        <ul class="divide-y divide-white/5">
+                            <li th:each="doc : ${documents}" class="p-4 space-y-3">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="h-10 w-10 rounded bg-[#ff6b00]/10 flex items-center justify-center text-[#ff6b00] border border-[#ff6b00]/20">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-medium text-white" th:text="${doc.title}">Title</p>
+                                            <p class="text-xs text-gray-500 font-mono"
+                                                th:text="${doc.policyNumber ?: 'No Ref #'}">Ref</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-3">
+                                        <a th:href="@{/download/{id}(id=${doc.id})}"
+                                            class="text-gray-400 hover:text-[#ff6b00]"><i
+                                                class="fas fa-download"></i></a>
+                                        <form th:action="@{/delete/{id}(id=${doc.id})}" method="POST" class="inline"
+                                            onsubmit="return confirm('Delete?');">
+                                            <button type="submit" class="text-gray-400 hover:text-red-500"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 border-t border-white/5 pt-2">
+                                    <span>Valid Until:</span>
+                                    <span
+                                        th:text="${doc.endDate != null ? #temporals.format(doc.endDate, 'MMM dd, yyyy') : 'Indefinite'}"
+                                        class="text-gray-400">Date</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Pagination -->
+                    <!-- Reusing similar structure to before, but styled darker -->
+                    <div th:if="${documentPage.totalPages > 1}"
+                        class="border-t border-white/5 px-4 py-3 flex items-center justify-between sm:px-6">
+                        <div class="flex flex-1 justify-between sm:hidden">
+                            <a th:if="${documentPage.hasPrevious()}"
+                                th:href="@{/dashboard(page=${documentPage.number - 1})}"
+                                class="relative inline-flex items-center rounded-md border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-300 hover:bg-white/10">Previous</a>
+                            <a th:if="${documentPage.hasNext()}"
+                                th:href="@{/dashboard(page=${documentPage.number + 1})}"
+                                class="relative ml-3 inline-flex items-center rounded-md border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-300 hover:bg-white/10">Next</a>
+                        </div>
+                        <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center">
+                            <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                                <a th:each="pageNumber : ${pageNumbers}"
+                                    th:href="@{/dashboard(page=${pageNumber - 1}, size=${documentPage.size})}"
+                                    th:text="${pageNumber}"
+                                    th:classappend="${pageNumber == documentPage.number + 1} ? 'z-10 bg-[#ff6b00] text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6b00]' : 'text-gray-400 ring-1 ring-inset ring-white/10 hover:bg-white/5 focus:z-20 focus:outline-offset-0'"
+                                    class="relative inline-flex items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-white/10 focus:z-20 focus:outline-offset-0 transition-colors">
+                                    1
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2"></div>
+
+    <div th:replace="~{fragments/layout :: footer}"></div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        document.addEventListener('DOMContentLoaded', function () {
+            const successMsg = /*[[${message}]]*/ null;
+            const errorMsg = /*[[${error}]]*/ null;
+
+            if (successMsg) showToast(successMsg, 'success');
+            if (errorMsg) showToast(errorMsg, 'error');
+        });
+
+        function updateFileName(input) {
+            const fileName = input.files[0] ? input.files[0].name : "Click to upload PDF";
+            const textElement = document.getElementById('upload-text');
+            const iconElement = document.getElementById('upload-icon');
+
+            if (input.files[0]) {
+                textElement.textContent = "Selected: " + fileName;
+                textElement.classList.remove('text-gray-400');
+                textElement.classList.add('text-green-400', 'font-bold');
+
+                iconElement.classList.remove('text-gray-500');
+                iconElement.classList.add('text-green-500');
+            } else {
+                textElement.textContent = "Click to upload PDF";
+                textElement.classList.add('text-gray-400');
+                textElement.classList.remove('text-green-400', 'font-bold');
+
+                iconElement.classList.add('text-gray-500');
+                iconElement.classList.remove('text-green-500');
+            }
+        }
+
+        function showToast(message, type) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+
+            // Icon and Color based on type
+            const isSuccess = type === 'success';
+            const bgColor = isSuccess ? 'bg-green-500/10' : 'bg-red-500/10';
+            const borderColor = isSuccess ? 'border-green-500' : 'border-red-500';
+            const icon = isSuccess ? 'fa-check-circle' : 'fa-exclamation-circle';
+            const textColor = isSuccess ? 'text-green-500' : 'text-red-500';
+
+            toast.className = `flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 border ${borderColor} ${bgColor} backdrop-blur-md transition-all duration-300 transform translate-x-full opacity-0`;
+
+            toast.innerHTML = `
+                <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 ${textColor} rounded-lg">
+                    <i class="fas ${icon}"></i>
+                </div>
+                <div class="ml-3 text-sm font-normal text-white">${message}</div>
+                <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-transparent text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-700" aria-label="Close" onclick="this.parentElement.remove()">
+                    <span class="sr-only">Close</span>
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+
+            container.appendChild(toast);
+
+            // Animate In
+            setTimeout(() => {
+                toast.classList.remove('translate-x-full', 'opacity-0');
+            }, 100);
+
+            // Auto Dismiss
+            setTimeout(() => {
+                toast.classList.add('translate-x-full', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 5000);
+        }
+        /*]]>*/
+    </script>
+</body>
+
+</html>

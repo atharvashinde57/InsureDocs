@@ -1,0 +1,41 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.insurance:manager >------------------------
+[INFO] Building Insurance PDF Manager 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ manager ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 11 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ manager ---
+[INFO] Changes detected - recompiling the module! :input tree
+[INFO] Compiling 24 source files with javac [debug release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ manager ---
+[INFO] skip non existing resourceDirectory C:\Users\Atharva\Desktop\Projects\Insurance\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ manager ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ manager ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ manager ---
+[INFO] Building jar: C:\Users\Atharva\Desktop\Projects\Insurance\target\manager-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.2.2:repackage (repackage) @ manager ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  25.069 s
+[INFO] Finished at: 2026-02-02T21:54:15+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.2.2:repackage (repackage) on project manager: Execution repackage of goal org.springframework.boot:spring-boot-maven-plugin:3.2.2:repackage failed: Unable to rename 'C:\Users\Atharva\Desktop\Projects\Insurance\target\manager-0.0.1-SNAPSHOT.jar' to 'C:\Users\Atharva\Desktop\Projects\Insurance\target\manager-0.0.1-SNAPSHOT.jar.original' -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException

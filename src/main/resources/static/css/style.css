@@ -1,0 +1,278 @@
+:root {
+    --bg-color: #0a0a0a;
+    /* Deep dark background */
+    --text-color: #ff6b00;
+    /* Bright Orange (Replacing White) */
+    --text-color-light: #ff9e5e;
+    /* Lighter Orange for variation */
+    --accent-color: #00f3ff;
+    /* Neon Blue - Keeping as per original, or should this also change? "exact same... just replace white" implies preserving accent */
+    --secondary-text: #888888;
+    --cursor-size: 8px;
+    --follower-size: 25px;
+    --font-primary: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+    /* Hide default cursor */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Custom Cursor */
+#custom-cursor {
+    position: fixed;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    background-color: #ffffff;
+    /* White Dot */
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+#custom-cursor-follower {
+    position: fixed;
+    width: var(--follower-size);
+    height: var(--follower-size);
+    border: 1px solid #ff6b00;
+    /* Orange Border */
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+    /* Orange Neon Glow */
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: all 0.1s ease-out;
+}
+
+#custom-cursor.hovered {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+}
+
+#custom-cursor-follower.hovered {
+    width: 60px;
+    height: 60px;
+    border-color: #ff6b00;
+    background-color: rgba(255, 107, 0, 0.1);
+}
+
+/* Navbar */
+.navbar {
+    /* Conflicts with Tailwind layout in layout.html
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    */
+    z-index: 1000;
+    background: transparent;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(10, 10, 10, 0.95);
+    /* Dark Background */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    padding: 1rem 4rem;
+}
+
+.logo a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar.scrolled .logo a {
+    color: #000000;
+    /* Black text on Orange header */
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--secondary-text);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: var(--text-color);
+}
+
+.navbar.scrolled .nav-item {
+    color: #333333;
+}
+
+.navbar.scrolled .nav-item:hover,
+.navbar.scrolled .nav-item.active {
+    color: #000000;
+}
+
+.nav-number {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    margin-bottom: 2px;
+}
+
+/* Page Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10rem 2rem 4rem;
+    min-height: 100vh;
+}
+
+/* Headings and Text */
+h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+h2,
+h3,
+h4 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+p {
+    color: var(--secondary-text);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    background: transparent;
+}
+
+.btn:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    /* Black text on Orange bg */
+}
+
+/* Form Styles for this theme */
+input,
+select,
+textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 107, 0, 0.2);
+    color: var(--text-color);
+    padding: 0.8rem;
+    border-radius: 4px;
+    width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--text-color);
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.2);
+}
+
+input[type="password"] {
+    color: #FF5F1F;
+    /* Neon Orange for dots */
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Fix Autofill Background & Text Color - Force White as requested */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+    -webkit-text-fill-color: #000000 !important;
+    caret-color: #000000;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--secondary-text);
+}
+
+th {
+    text-align: left;
+    color: var(--text-color);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+/* Tailwind Overrides if necessary */
+.bg-white {
+    background-color: #111 !important;
+}
+
+.text-slate-900 {
+    color: var(--text-color) !important;
+}
+
+.text-slate-500 {
+    color: var(--secondary-text) !important;
+}
+
+.bg-gray-50 {
+    background-color: var(--bg-color) !important;
+}

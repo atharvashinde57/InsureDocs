@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:replace="~{fragments/layout :: head-content}"></th:block>
+    <title>Contact Us - Insurance Manager</title>
+</head>
+
+<body class="bg-[#0a0a0a] text-white flex flex-col min-h-screen pt-20">
+
+    <div th:replace="~{fragments/layout :: navbar}"></div>
+
+    <main class="flex-grow flex items-center justify-center p-6">
+        <div class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+            <!-- Left Side: Text -->
+            <div class="space-y-6">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white">
+                    Get in <span class="text-[#ff6b00]">Touch</span>
+                </h1>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Have questions about your policy? Need assistance with a claim?
+                    Our dedicated team is here to help you navigate your insurance needs.
+                </p>
+                <div class="h-1 w-20 bg-[#ff6b00]"></div>
+            </div>
+
+            <!-- Right Side: Contact Cards -->
+            <div class="space-y-4">
+
+                <!-- Email Card -->
+                <a href="mailto:support@insuredocs.com"
+                    class="group block bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:border-[#ff6b00]/50 hover:bg-white/10 transition-all duration-300">
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="h-12 w-12 rounded-full bg-[#ff6b00]/10 flex items-center justify-center text-[#ff6b00] group-hover:scale-110 transition-transform">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-[#ff6b00] transition-colors">Email
+                                Us</h3>
+                            <p class="text-sm text-gray-400">support@insuredocs.com</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Instagram Card -->
+                <a href="https://instagram.com/insuredocs" target="_blank"
+                    class="group block bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:border-[#ff6b00]/50 hover:bg-white/10 transition-all duration-300">
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="h-12 w-12 rounded-full bg-[#ff6b00]/10 flex items-center justify-center text-[#ff6b00] group-hover:scale-110 transition-transform">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-[#ff6b00] transition-colors">Follow
+                                Us</h3>
+                            <p class="text-sm text-gray-400">@insuredocs</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <div th:replace="~{fragments/layout :: footer}"></div>
+
+</body>
+
+</html>
