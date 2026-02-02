@@ -16,9 +16,9 @@ spring:
     
   # MySQL (Enabled)
   datasource:
-    url: jdbc:mysql://localhost:3307/insurance_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
-    username: root
-    password: root
+    url: ${DB_URL:jdbc:mysql://localhost:3307/insurance_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 10
