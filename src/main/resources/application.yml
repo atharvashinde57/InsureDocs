@@ -10,7 +10,7 @@ spring:
   # MongoDB Configuration
   data:
     mongodb:
-      uri: ${MONGO_URI:mongodb+srv://atharvashinde811_db_user:jUfWnUzeVGpmiqQg@cluster1.hygoiiw.mongodb.net/insurance_db?appName=Cluster1}
+      uri: "${MONGO_URI:mongodb+srv://atharvashinde811_db_user:jUfWnUzeVGpmiqQg@cluster1.hygoiiw.mongodb.net/insurance_db?appName=Cluster1}"
 
   # File Upload Limits
   servlet:
