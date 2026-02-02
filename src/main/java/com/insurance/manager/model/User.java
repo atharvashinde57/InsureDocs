@@ -25,6 +25,10 @@ public class User {
 
     private String name;
 
+    @OneToMany(mappedBy = "uploader", fetch = FetchType.EAGER)
+    @lombok.ToString.Exclude
+    private java.util.List<Document> documents;
+
     // Encrypted password for form login
     private String password;
 
